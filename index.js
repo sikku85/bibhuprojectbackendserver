@@ -29,7 +29,7 @@ const Upload = require("./routes/FileUpload");
 app.use('/api/v1/upload', Upload);
 
 app.use("/",(req,res)=>{
-    res.json{message:"Hello this is working"}
+    res.json({message:"Hello this is working"})
 })
 //activate server
 app.listen(PORT,"0.0.0.0", () => {

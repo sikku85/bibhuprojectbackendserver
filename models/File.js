@@ -69,7 +69,6 @@ const fileSchema = new mongoose.Schema({
     },
     apply:{
         type:String,
-        required:true,
     }
     
     

@@ -8,28 +8,42 @@ const fileSchema = new mongoose.Schema({
     },
     generalAge:{
         type:Number,
+        min:0,
+        max:100
         // required:true,
     },
     femaleAge:{
         type:Number,
+        min:0,
+        max:100
     },
     stScAge:{
         type:Number,
+        min:0,
+        max:100
     },
    
     obcAge:{
         type:Number,
+        min:0,
+        max:100
     },
     pwdUnreservedAge:{
         type:Number,
+        min:0,
+        max:100
     },
     
     pwdObcAge:{
         type:Number,
+        min:0,
+        max:100
     },
     
     exServiceMenAge:{
         type:Number,
+        min:0,
+        max:100
     },
     femaleFee:{
         type:Number,
@@ -57,18 +71,33 @@ const fileSchema = new mongoose.Schema({
     },
     modeOfPaymentFee:{
         type:String,
+        type: String,
+        enum: ['Cash', 'Credit Card', 'Online Payment']
     },
     startDate:{
-        type:String
+        type:String,
+        minlength: 10,
+        maxlength: 10
     },
     lastDate:{
         type:String,
+        minlength: 10,
+        maxlength: 10
     },
     shortInfo:{
         type:String,
     },
     apply:{
-        type:String,
+        type: String,
+        validate: {
+          validator: function(value) {
+            // Custom validation logic using a regular expression
+            // Return true if the URL is valid, false if not
+            const urlPattern = /^(http|https):\/\/[^ "]+$/.test(value);
+            return urlPattern;
+          },
+          message: 'Invalid URL format'
+        }
     }
     
     

@@ -7,71 +7,56 @@ const fileSchema = new mongoose.Schema({
 
     },
     generalAge:{
-        type:Number,
-        min:0,
-        max:100
+        type:String,
         // required:true,
     },
     femaleAge:{
-        type:Number,
-        min:0,
-        max:100
+        type:String,
     },
     stScAge:{
-        type:Number,
-        min:0,
-        max:100
+        type:String,
     },
    
     obcAge:{
-        type:Number,
-        min:0,
-        max:100
+      type:String,
     },
     pwdUnreservedAge:{
-        type:Number,
-        min:0,
-        max:100
+        type:String,
     },
     
     pwdObcAge:{
-        type:Number,
-        min:0,
-        max:100
+        type:String,
     },
     
     exServiceMenAge:{
-        type:Number,
-        min:0,
-        max:100
+        type:String,
     },
     femaleFee:{
-        type:Number,
+        type:String,
     },
     generalFee:{
-        type:Number,
+        type:String,
     },
     obcFee:{
-        type:Number,
+        type:String,
     },
     ewsFee:{
-        type:Number,
+        type:String,
     },
     stScFee:{
-        type:Number,
+        type:String,
     },
     pwdObcFee:{
-        type:Number,
+        type:String,
     },
     correctionFee1Fee:{
-        type:Number,
+        type:String,
     },
     correctionFee2Fee:{
-        type:Number,
+        type:String,
     },
     modeOfPaymentFee:{
         type:String,
-        type: String,
         enum: ['Cash', 'Credit Card', 'Online Payment']
     },
     startDate:{
@@ -98,6 +83,29 @@ const fileSchema = new mongoose.Schema({
           },
           message: 'Invalid URL format'
         }
+    },
+    minimumAge:{
+        type:String,
+    },
+    maximumAge:{
+        type:String,
+    },
+    totalvacancy:{
+        type:String,
+
+    },
+    officalLink:{
+        type: String,
+        validate: {
+          validator: function(value) {
+            // Custom validation logic using a regular expression
+            // Return true if the URL is valid, false if not
+            const urlPattern = /^(http|https):\/\/[^ "]+$/.test(value);
+            return urlPattern;
+          },
+          message: 'Invalid URL format'
+        }
+
     }
     
     
